@@ -5,11 +5,7 @@ import { ItemsService } from '../../services/repo.service';
 @Component({
   selector: 'app-pistols',
   templateUrl: './pistols.component.html',
-  styles: `.loader{
-    display: flex;
-    justify-content: center;
-    padding-top: 5rem
-  }`,
+  styleUrl: '../styles.scss',
 })
 export class PistolsPageComponent implements OnInit {
   items: Item[] = [];

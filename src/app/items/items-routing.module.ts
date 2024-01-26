@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PistolsPageComponent } from './pages/pistols/pistols.component';
 import { MidTierPageComponent } from './pages/mid-tier/mid-tier.component';
 import { RiflesPageComponent } from './pages/rifles/rifles.component';
-import { KnifesPageComponent } from './pages/knifes/knifes.component';
+import { KnivesPageComponent } from './pages/knifes/knives.component';
 import { HomePageComponent } from './pages/home/home.component';
 import { GlovesPageComponent } from './pages/gloves/gloves.component';
 import { AgentsPageComponent } from './pages/agents/agents.component';
@@ -30,8 +30,8 @@ const routes: Routes = [
     component: RiflesPageComponent,
   },
   {
-    path: 'knifes',
-    component: KnifesPageComponent,
+    path: 'knives',
+    component: KnivesPageComponent,
   },
   {
     path: 'gloves',

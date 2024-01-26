@@ -5,7 +5,11 @@ import { ItemsService } from '../../services/repo.service';
 @Component({
   selector: 'app-mid-tier',
   templateUrl: './mid-tier.component.html',
-  styles: ``,
+  styles: `.loader{
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem
+  }`,
 })
 export class MidTierPageComponent implements OnInit {
   items: Item[] = [];

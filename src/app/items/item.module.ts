@@ -9,7 +9,7 @@ import { CollectionsPageComponent } from './pages/collections/collections.compon
 import { GlovesPageComponent } from './pages/gloves/gloves.component';
 import { GraffitiPageComponent } from './pages/graffiti/graffiti.component';
 import { KeysPageComponent } from './pages/keys/keys.component';
-import { KnifesPageComponent } from './pages/knifes/knifes.component';
+import { KnivesPageComponent } from './pages/knifes/knives.component';
 import { MedalsPageComponent } from './pages/medals/medals.component';
 import { MidTierPageComponent } from './pages/mid-tier/mid-tier.component';
 import { MusicKitPageComponent } from './pages/music-kit/music-kit.component';
@@ -29,7 +29,7 @@ import { ItemsRoutingModule } from './items-routing.module';
     GlovesPageComponent,
     GraffitiPageComponent,
     KeysPageComponent,
-    KnifesPageComponent,
+    KnivesPageComponent,
     MedalsPageComponent,
     MidTierPageComponent,
     MusicKitPageComponent,

@@ -3,33 +3,33 @@ import { Item } from '../../interfaces/item';
 import { ItemsService } from '../../services/repo.service';
 
 @Component({
-  selector: 'app-rifles',
-  templateUrl: './rifles.component.html',
+  selector: 'app-knives',
+  templateUrl: './knives.component.html',
   styles: `.loader{
     display: flex;
     justify-content: center;
     padding-top: 5rem
   }`,
 })
-export class RiflesPageComponent implements OnInit {
+export class KnivesPageComponent implements OnInit {
   items: Item[] = [];
-  riflesOnly: Item[] = [];
+  knivesOnly: Item[] = [];
   p: number = 1;
   isLoading: boolean = true;
 
   constructor(private itemsService: ItemsService) {}
 
   ngOnInit(): void {
-    this.loadRifles();
+    this.loadKnives();
   }
 
-  loadRifles(): void {
+  loadKnives(): void {
     this.itemsService.getSkins().subscribe(
       (data) => {
         this.items = Object.values(data);
 
-        this.riflesOnly = this.items.filter(
-          (item) => item.category && item.category.name === 'Rifles'
+        this.knivesOnly = this.items.filter(
+          (item) => item.category && item.category.name === 'Knives'
         );
 
         this.isLoading = false;

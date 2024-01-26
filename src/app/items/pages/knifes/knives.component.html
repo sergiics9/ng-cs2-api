@@ -2,8 +2,9 @@
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
   <tbody>
-    <tr *ngFor="let item of glovesOnly | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+    <tr *ngFor="let item of knivesOnly | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
       <td>{{item.name}}</td>
+      <td>{{item?.phase}}</td>
       <td>{{item.category?.name}}</td>
       <td [ngStyle]="{ 'background-color': item.rarity?.color}">{{item.rarity?.name}}
       </td>
