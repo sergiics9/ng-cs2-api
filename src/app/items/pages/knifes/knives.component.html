@@ -1,20 +1,18 @@
-<table class="table table-hover" *ngIf="!isLoading">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+<div *ngIf="!isLoading">
+  <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
-  <tbody>
-    <tr *ngFor="let item of knivesOnly | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
-      <td>{{item.name}}</td>
-      <td>{{item?.phase}}</td>
-      <td>{{item.category?.name}}</td>
-      <td [ngStyle]="{ 'background-color': item.rarity?.color}">{{item.rarity?.name}}
-      </td>
-      <td><img [src]="item.image" [alt]="item.name"></td>
-    </tr>
-  </tbody>
-</table>
+  <ul class="skins-list">
+    <li class="card" *ngFor="let item of knivesOnly | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">
+      <p class="skin-name">{{item.name}}</p>
+      <p class="phase">{{item.phase}}</p>
+      <p class="skin-rarity" [ngStyle]=" { 'background-color' : item.rarity?.color}">{{item.rarity?.name}}
+      </p>
+      <div class="skin-image"><img [src]="item.image" [alt]="item.name" width="400" height="300"></div>
+    </li>
+  </ul>
 
-<pagination-controls *ngIf="!isLoading" (pageChange)="p = $event"></pagination-controls>
-
+</div>
+<pagination-controls class="pagination" *ngIf="!isLoading" (pageChange)="p = $event"></pagination-controls>
 <div class="loader" *ngIf="isLoading">
   <svg width="145" height="145" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
     <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">

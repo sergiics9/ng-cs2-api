@@ -5,7 +5,7 @@ import { ItemsService } from '../../services/repo.service';
 @Component({
   selector: 'app-stickers',
   templateUrl: './stickers.component.html',
-  styles: ``,
+  styleUrl: '../styles.scss',
 })
 export class StickersPageComponent implements OnInit {
   items: Item[] = [];

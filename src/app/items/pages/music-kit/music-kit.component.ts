@@ -5,7 +5,7 @@ import { ItemsService } from '../../services/repo.service';
 @Component({
   selector: 'app-music-kit',
   templateUrl: './music-kit.component.html',
-  styles: ``,
+  styleUrl: '../styles.scss',
 })
 export class MusicKitPageComponent implements OnInit {
   items: Item[] = [];

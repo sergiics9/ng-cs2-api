@@ -5,7 +5,7 @@ import { ItemsService } from '../../services/repo.service';
 @Component({
   selector: 'app-cases',
   templateUrl: './cases.component.html',
-  styles: ``,
+  styleUrl: '../styles.scss',
 })
 export class CasesPageComponent implements OnInit {
   items: Item[] = [];

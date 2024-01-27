@@ -5,11 +5,7 @@ import { ItemsService } from '../../services/repo.service';
 @Component({
   selector: 'app-knives',
   templateUrl: './knives.component.html',
-  styles: `.loader{
-    display: flex;
-    justify-content: center;
-    padding-top: 5rem
-  }`,
+  styleUrl: '../styles.scss',
 })
 export class KnivesPageComponent implements OnInit {
   items: Item[] = [];

@@ -1,17 +1,17 @@
 <div *ngIf="!isLoading">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
   <ul class="skins-list">
-    <li *ngFor="let item of pistolsOnly | paginate: { itemsPerPage: 12, currentPage: p }; let i = index">
+    <li class="card" *ngFor="let item of pistolsOnly | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">
       <p class="skin-name">{{item.name}}</p>
       <p class="skin-rarity" [ngStyle]=" { 'background-color' : item.rarity?.color}">{{item.rarity?.name}}
       </p>
-      <p class="skin-image"><img [src]="item.image" [alt]="item.name"></p>
+      <div class="skin-image"><img [src]="item.image" [alt]="item.name" width="400" height="300"></div>
     </li>
   </ul>
 
-  <pagination-controls *ngIf="!isLoading" (pageChange)="p = $event"></pagination-controls>
 </div>
+<pagination-controls class="pagination" *ngIf="!isLoading" (pageChange)="p = $event"></pagination-controls>
 
 <div class="loader" *ngIf="isLoading">
   <svg width="145" height="145" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">

@@ -5,11 +5,7 @@ import { ItemsService } from '../../services/repo.service';
 @Component({
   selector: 'app-gloves',
   templateUrl: './gloves.component.html',
-  styles: `.loader{
-    display: flex;
-    justify-content: center;
-    padding-top: 5rem
-  }`,
+  styleUrl: '../styles.scss',
 })
 export class GlovesPageComponent implements OnInit {
   items: Item[] = [];
