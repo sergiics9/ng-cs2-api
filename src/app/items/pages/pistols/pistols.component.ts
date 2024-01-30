@@ -10,9 +10,11 @@ import { ItemsService } from '../../services/repo.service';
 export class PistolsPageComponent implements OnInit {
   items: Item[] = [];
   pistolsOnly: Item[] = [];
+  filteredItems: Item[] = [];
   p: number = 1;
   isLoading: boolean = true;
   imagesLoaded: number = 0;
+  selectedRarity: string = '';
 
   constructor(private itemsService: ItemsService) {}
 
@@ -28,6 +30,8 @@ export class PistolsPageComponent implements OnInit {
         this.pistolsOnly = this.items.filter(
           (item) => item.category && item.category.name === 'Pistols'
         );
+
+        this.filteredItems = [...this.pistolsOnly];
 
         this.imagesLoaded = 0;
 
@@ -45,6 +49,12 @@ export class PistolsPageComponent implements OnInit {
         });
       },
       (error) => console.error(error)
+    );
+  }
+
+  filterItems(): void {
+    this.filteredItems = this.pistolsOnly.filter(
+      (item) => item.rarity && item.rarity.name === this.selectedRarity
     );
   }
 }

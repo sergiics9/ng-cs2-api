@@ -1,6 +1,8 @@
 <div *ngIf="!isLoading">
   <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
+
+
   <ul class="skins-list">
     <li class="card" *ngFor="let item of items | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">
       <p class="skin-name">{{item.name}}</p>

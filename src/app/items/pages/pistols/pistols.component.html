@@ -1,14 +1,24 @@
 <div *ngIf="!isLoading">
   <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
+  <select [(ngModel)]="selectedRarity" (change)="filterItems()">
+    <option value="Industrial Grade">Industrial Grade</option>
+    <option value="Mil-Spec Grade">Mil-Spec</option>
+    <option value="Restricted">Restricted</option>
+    <option value="Classified">Classified</option>
+    <option value="Covert">Covert</option>
+  </select>
+
   <ul class="skins-list">
-    <li class="card" *ngFor="let item of pistolsOnly | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">
+    <li class="card" *ngFor="let item of filteredItems | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">
       <p class="skin-name">{{item.name}}</p>
       <p class="skin-rarity" [ngStyle]=" { 'background-color' : item.rarity?.color}">{{item.rarity?.name}}
       </p>
       <div class="skin-image"><img [src]="item.image" [alt]="item.name" width="400" height="300"></div>
     </li>
   </ul>
+
+
 
 </div>
 <pagination-controls class="pagination" *ngIf="!isLoading" (pageChange)="p = $event"></pagination-controls>

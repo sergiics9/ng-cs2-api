@@ -18,6 +18,10 @@ import { GraffitiPageComponent } from './pages/graffiti/graffiti.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: HomePageComponent,
+  },
+  {
     path: 'pistols',
     component: PistolsPageComponent,
   },
@@ -75,7 +79,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: '',
   },
 ];
 

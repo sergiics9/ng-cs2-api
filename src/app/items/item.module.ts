@@ -18,6 +18,9 @@ import { RiflesPageComponent } from './pages/rifles/rifles.component';
 import { StickersPageComponent } from './pages/stickers/stickers.component';
 import { HomePageComponent } from './pages/home/home.component';
 import { ItemsRoutingModule } from './items-routing.module';
+import { AllComponent } from './pages/all/all.component';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,8 +40,9 @@ import { ItemsRoutingModule } from './items-routing.module';
     RiflesPageComponent,
     StickersPageComponent,
     HomePageComponent,
+    AllComponent,
   ],
-  imports: [CommonModule, NgxPaginationModule, ItemsRoutingModule],
+  imports: [CommonModule, NgxPaginationModule, ItemsRoutingModule, FormsModule],
   exports: [MenuComponent],
 })
 export class ItemModule {}

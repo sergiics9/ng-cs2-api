@@ -81,3 +81,12 @@ $font: "Karla";
   color: white;
   float: right;
 }
+
+.home-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font;
+  color: #eb7a34;
+  font-size: 2rem;
+}
