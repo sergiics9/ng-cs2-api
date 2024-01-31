@@ -12,6 +12,7 @@ export class MidTierPageComponent implements OnInit {
   midTierOnly: Item[] = [];
   p: number = 1;
   isLoading: boolean = true;
+  filteredItems: Item[] = [];
 
   constructor(private itemsService: ItemsService) {}
 
@@ -27,10 +28,15 @@ export class MidTierPageComponent implements OnInit {
         this.midTierOnly = this.items.filter(
           (item) => item.category && item.category.name === 'SMGs'
         );
+        this.filteredItems = [...this.midTierOnly];
 
         this.isLoading = false;
       },
       (error) => console.error(error)
     );
+  }
+
+  onItemsFiltered(items: Item[]): void {
+    this.filteredItems = items;
   }
 }

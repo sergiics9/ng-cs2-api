@@ -1,13 +1,7 @@
 <div *ngIf="!isLoading">
   <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
-  <select [(ngModel)]="selectedRarity" (change)="filterItems()">
-    <option value="Industrial Grade">Industrial Grade</option>
-    <option value="Mil-Spec Grade">Mil-Spec</option>
-    <option value="Restricted">Restricted</option>
-    <option value="Classified">Classified</option>
-    <option value="Covert">Covert</option>
-  </select>
+  <app-filter [items]="pistolsOnly" (itemsFiltered)="onItemsFiltered($event)"></app-filter>
 
   <ul class="skins-list">
     <li class="card" *ngFor="let item of filteredItems | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">

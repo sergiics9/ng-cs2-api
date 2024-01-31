@@ -10,11 +10,10 @@ import { ItemsService } from '../../services/repo.service';
 export class PistolsPageComponent implements OnInit {
   items: Item[] = [];
   pistolsOnly: Item[] = [];
-  filteredItems: Item[] = [];
   p: number = 1;
   isLoading: boolean = true;
   imagesLoaded: number = 0;
-  selectedRarity: string = '';
+  filteredItems: Item[] = [];
 
   constructor(private itemsService: ItemsService) {}
 
@@ -52,9 +51,7 @@ export class PistolsPageComponent implements OnInit {
     );
   }
 
-  filterItems(): void {
-    this.filteredItems = this.pistolsOnly.filter(
-      (item) => item.rarity && item.rarity.name === this.selectedRarity
-    );
+  onItemsFiltered(items: Item[]): void {
+    this.filteredItems = items;
   }
 }

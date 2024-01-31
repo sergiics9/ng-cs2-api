@@ -21,6 +21,7 @@ import { ItemsRoutingModule } from './items-routing.module';
 import { AllComponent } from './pages/all/all.component';
 
 import { FormsModule } from '@angular/forms';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { FormsModule } from '@angular/forms';
     StickersPageComponent,
     HomePageComponent,
     AllComponent,
+    FilterComponent,
   ],
   imports: [CommonModule, NgxPaginationModule, ItemsRoutingModule, FormsModule],
   exports: [MenuComponent],
