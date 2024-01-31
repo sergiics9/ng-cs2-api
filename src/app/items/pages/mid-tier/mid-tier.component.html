@@ -1,6 +1,7 @@
 <div *ngIf="!isLoading">
-  <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
+  <app-filter [items]="midTierOnly" [rarityOptions]="rarityOptions" [pistolOptions]="midTierNameOptions"
+    (itemsFiltered)="onItemsFiltered($event)"></app-filter>
 
   <ul class="skins-list">
     <li class="card" *ngFor="let item of filteredItems | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">

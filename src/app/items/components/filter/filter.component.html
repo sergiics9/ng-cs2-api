@@ -1,7 +1,15 @@
-<select [(ngModel)]="selectedRarity" (change)="filterItems()">
-  <option *ngFor="let option of rarityOptions" [value]="option">{{option}}</option>
-</select>
+<div>
+  <select [(ngModel)]="selectedRarity" (change)="filterItems()">
+    <option value="">All</option>
+    <option *ngFor="let option of rarityOptions" [value]="option">{{option}}</option>
+  </select>
 
-<select [(ngModel)]="selectedPistol" (change)="filterItems()">
-  <option *ngFor="let option of pistolOptions" [value]="option">{{option}}</option>
-</select>
+  <select [(ngModel)]="selectedPistol" (change)="filterItems()">
+    <option value="">All</option>
+    <option *ngFor="let option of pistolOptions" [value]="option">{{option}}</option>
+  </select>
+</div>
+
+<div *ngIf="noContent">
+  <h3>No hay contenido</h3>
+</div>

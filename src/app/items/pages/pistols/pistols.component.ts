@@ -14,6 +14,8 @@ export class PistolsPageComponent implements OnInit {
   isLoading: boolean = true;
   imagesLoaded: number = 0;
   filteredItems: Item[] = [];
+  pistolNameOptions: string[] = [];
+  rarityOptions: string[] = [];
 
   constructor(private itemsService: ItemsService) {}
 
@@ -29,6 +31,14 @@ export class PistolsPageComponent implements OnInit {
         this.pistolsOnly = this.items.filter(
           (item) => item.category && item.category.name === 'Pistols'
         );
+
+        this.rarityOptions = [
+          ...new Set(this.pistolsOnly.map((item) => item.rarity!.name)),
+        ];
+
+        this.pistolNameOptions = [
+          ...new Set(this.pistolsOnly.map((item) => item.weapon!.name)),
+        ];
 
         this.filteredItems = [...this.pistolsOnly];
 

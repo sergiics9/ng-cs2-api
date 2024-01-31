@@ -13,6 +13,8 @@ export class MidTierPageComponent implements OnInit {
   p: number = 1;
   isLoading: boolean = true;
   filteredItems: Item[] = [];
+  midTierNameOptions: string[] = [];
+  rarityOptions: string[] = [];
 
   constructor(private itemsService: ItemsService) {}
 
@@ -28,8 +30,16 @@ export class MidTierPageComponent implements OnInit {
         this.midTierOnly = this.items.filter(
           (item) => item.category && item.category.name === 'SMGs'
         );
-        this.filteredItems = [...this.midTierOnly];
 
+        this.rarityOptions = [
+          ...new Set(this.midTierOnly.map((item) => item.rarity!.name)),
+        ];
+
+        this.midTierNameOptions = [
+          ...new Set(this.midTierOnly.map((item) => item.weapon!.name)),
+        ];
+
+        this.filteredItems = [...this.midTierOnly];
         this.isLoading = false;
       },
       (error) => console.error(error)

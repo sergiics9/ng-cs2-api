@@ -1,8 +1,10 @@
 <div *ngIf="!isLoading">
-  <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+
+  <app-filter [items]="knivesOnly" [rarityOptions]="rarityOptions" [pistolOptions]="knivesNameOptions"
+    (itemsFiltered)="onItemsFiltered($event)"></app-filter>
 
   <ul class="skins-list">
-    <li class="card" *ngFor="let item of knivesOnly | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">
+    <li class="card" *ngFor="let item of filteredItems | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">
       <p class="skin-name">{{item.name}}</p>
       <p class="phase">{{item.phase}}</p>
       <p class="skin-rarity" [ngStyle]=" { 'background-color' : item.rarity?.color}">{{item.rarity?.name}}

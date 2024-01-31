@@ -12,14 +12,17 @@ export class GlovesPageComponent implements OnInit {
   glovesOnly: Item[] = [];
   p: number = 1;
   isLoading: boolean = true;
+  filteredItems: Item[] = [];
+  glovesNameOptions: string[] = [];
+  rarityOptions: string[] = [];
 
   constructor(private itemsService: ItemsService) {}
 
   ngOnInit(): void {
-    this.loadGloves();
+    this.loadRifles();
   }
 
-  loadGloves(): void {
+  loadRifles(): void {
     this.itemsService.getSkins().subscribe(
       (data) => {
         this.items = Object.values(data);
@@ -27,10 +30,23 @@ export class GlovesPageComponent implements OnInit {
         this.glovesOnly = this.items.filter(
           (item) => item.category && item.category.name === 'Gloves'
         );
+        this.rarityOptions = [
+          ...new Set(this.glovesOnly.map((item) => item.rarity!.name)),
+        ];
+
+        this.glovesNameOptions = [
+          ...new Set(this.glovesOnly.map((item) => item.weapon!.name)),
+        ];
+
+        this.filteredItems = [...this.glovesOnly];
 
         this.isLoading = false;
       },
       (error) => console.error(error)
     );
+  }
+
+  onItemsFiltered(items: Item[]): void {
+    this.filteredItems = items;
   }
 }

@@ -12,14 +12,17 @@ export class KnivesPageComponent implements OnInit {
   knivesOnly: Item[] = [];
   p: number = 1;
   isLoading: boolean = true;
+  filteredItems: Item[] = [];
+  knivesNameOptions: string[] = [];
+  rarityOptions: string[] = [];
 
   constructor(private itemsService: ItemsService) {}
 
   ngOnInit(): void {
-    this.loadKnives();
+    this.loadRifles();
   }
 
-  loadKnives(): void {
+  loadRifles(): void {
     this.itemsService.getSkins().subscribe(
       (data) => {
         this.items = Object.values(data);
@@ -27,10 +30,23 @@ export class KnivesPageComponent implements OnInit {
         this.knivesOnly = this.items.filter(
           (item) => item.category && item.category.name === 'Knives'
         );
+        this.rarityOptions = [
+          ...new Set(this.knivesOnly.map((item) => item.rarity!.name)),
+        ];
+
+        this.knivesNameOptions = [
+          ...new Set(this.knivesOnly.map((item) => item.weapon!.name)),
+        ];
+
+        this.filteredItems = [...this.knivesOnly];
 
         this.isLoading = false;
       },
       (error) => console.error(error)
     );
+  }
+
+  onItemsFiltered(items: Item[]): void {
+    this.filteredItems = items;
   }
 }

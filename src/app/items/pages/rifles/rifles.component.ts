@@ -13,6 +13,8 @@ export class RiflesPageComponent implements OnInit {
   p: number = 1;
   isLoading: boolean = true;
   filteredItems: Item[] = [];
+  riflesNameOptions: string[] = [];
+  rarityOptions: string[] = [];
 
   constructor(private itemsService: ItemsService) {}
 
@@ -28,6 +30,14 @@ export class RiflesPageComponent implements OnInit {
         this.riflesOnly = this.items.filter(
           (item) => item.category && item.category.name === 'Rifles'
         );
+        this.rarityOptions = [
+          ...new Set(this.riflesOnly.map((item) => item.rarity!.name)),
+        ];
+
+        this.riflesNameOptions = [
+          ...new Set(this.riflesOnly.map((item) => item.weapon!.name)),
+        ];
+
         this.filteredItems = [...this.riflesOnly];
 
         this.isLoading = false;

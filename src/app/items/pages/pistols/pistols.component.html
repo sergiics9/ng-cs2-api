@@ -1,13 +1,12 @@
 <div *ngIf="!isLoading">
-  <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
-  <app-filter [items]="items"
-    [rarityOptions]="['Industrial Grade', 'Mil-Spec Grade', 'Restricted', 'Classified', 'Covert']"
-    [pistolOptions]="['Desert Eagle', 'USP-S']" (itemsFiltered)="onItemsFiltered($event)"></app-filter>
+  <app-filter [items]="pistolsOnly" [rarityOptions]="rarityOptions" [pistolOptions]="pistolNameOptions"
+    (itemsFiltered)="onItemsFiltered($event)"></app-filter>
 
   <ul class="skins-list">
     <li class="card" *ngFor="let item of filteredItems | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">
       <p class="skin-name">{{item.name}}</p>
+      <p class="phase">{{item.phase}}</p>
       <p class="skin-rarity" [ngStyle]=" { 'background-color' : item.rarity?.color}">{{item.rarity?.name}}
       </p>
       <div class="skin-image"><img [src]="item.image" [alt]="item.name" width="400" height="300"></div>
