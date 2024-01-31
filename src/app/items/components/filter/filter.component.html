@@ -1,12 +1,7 @@
 <select [(ngModel)]="selectedRarity" (change)="filterItems()">
-  <option value="Industrial Grade">Industrial Grade</option>
-  <option value="Mil-Spec Grade">Mil-Spec</option>
-  <option value="Restricted">Restricted</option>
-  <option value="Classified">Classified</option>
-  <option value="Covert">Covert</option>
+  <option *ngFor="let option of rarityOptions" [value]="option">{{option}}</option>
 </select>
 
 <select [(ngModel)]="selectedPistol" (change)="filterItems()">
-  <option value="Desert Eagle">Desert Eagle</option>
-  <option value="USP-S">USP-S</option>
+  <option *ngFor="let option of pistolOptions" [value]="option">{{option}}</option>
 </select>

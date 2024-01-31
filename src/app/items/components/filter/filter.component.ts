@@ -8,6 +8,8 @@ import { Item } from '../../interfaces/item';
 })
 export class FilterComponent {
   @Input() items: Item[] = [];
+  @Input() rarityOptions: string[] = [];
+  @Input() pistolOptions: string[] = [];
   @Output() itemsFiltered = new EventEmitter<Item[]>();
   selectedRarity: string = '';
   selectedPistol: string = '';
