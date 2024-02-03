@@ -15,12 +15,14 @@ import { MusicKitPageComponent } from './pages/music-kit/music-kit.component';
 import { MedalsPageComponent } from './pages/medals/medals.component';
 import { KeysPageComponent } from './pages/keys/keys.component';
 import { GraffitiPageComponent } from './pages/graffiti/graffiti.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePageComponent,
   },
+
   {
     path: 'pistols',
     component: PistolsPageComponent,
@@ -76,6 +78,10 @@ const routes: Routes = [
   {
     path: 'graffiti',
     component: GraffitiPageComponent,
+  },
+  {
+    path: ':cateogry/details/:id',
+    component: DetailsComponent,
   },
   {
     path: '**',

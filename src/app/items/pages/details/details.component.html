@@ -1,0 +1,19 @@
+<div *ngIf="item">
+  <h1>{{ item.name }}</h1>
+  <p>{{item.description}}</p>
+  <img src="{{item.image}}" alt="">
+  <div *ngFor="let collection of item.collections">
+
+    <p>{{collection.name}}</p>
+    <img src="{{collection.image}}" alt="">
+  </div>
+  <div *ngFor="let case of item.crates">
+    <img src="{{case.image}}" alt="">
+    <p>{{case.name}}</p>
+  </div>
+  <p>{{item.team?.name}}</p>
+  <p>{{item.category?.name}}</p>
+  <p>{{item.pattern?.name}}</p>
+
+
+</div>

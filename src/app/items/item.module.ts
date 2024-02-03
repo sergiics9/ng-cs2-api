@@ -22,6 +22,8 @@ import { AllComponent } from './pages/all/all.component';
 
 import { FormsModule } from '@angular/forms';
 import { FilterComponent } from './components/filter/filter.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { DetailsComponent } from './pages/details/details.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { FilterComponent } from './components/filter/filter.component';
     HomePageComponent,
     AllComponent,
     FilterComponent,
+    DetailsComponent,
   ],
   imports: [CommonModule, NgxPaginationModule, ItemsRoutingModule, FormsModule],
   exports: [MenuComponent],
