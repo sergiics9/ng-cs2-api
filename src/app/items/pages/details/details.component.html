@@ -1,19 +1,41 @@
-<div *ngIf="item">
-  <h1>{{ item.name }}</h1>
-  <p>{{item.description}}</p>
-  <img src="{{item.image}}" alt="">
-  <div *ngFor="let collection of item.collections">
-
-    <p>{{collection.name}}</p>
-    <img src="{{collection.image}}" alt="">
+<div class="details-page" *ngIf="item">
+  <div class="first-section">
+    <h2 class="name">{{ item.name }}</h2>
+    <p class="phase">{{item.phase}}</p>
+    <p class="description">{{item.description}}</p>
+    <p class="category">{{item.category?.name}}</p>
   </div>
-  <div *ngFor="let case of item.crates">
-    <img src="{{case.image}}" alt="">
-    <p>{{case.name}}</p>
+
+
+  <div class="skin-image">
+    <img src="{{item.image}}" alt="">
   </div>
-  <p>{{item.team?.name}}</p>
-  <p>{{item.category?.name}}</p>
-  <p>{{item.pattern?.name}}</p>
+
+  <div class="container-case-collection">
+    <div *ngFor="let collection of item.collections">
+      <div class="collection-image">
+        <img src="{{collection.image}}" alt="{{collection.name}}" width="256" height="198">
+      </div>
+      <p>{{collection.name}}</p>
+    </div>
+
+    <div *ngFor="let case of item.crates">
+      <div class="case-image">
+        <img src="{{case.image}}" alt="{{case.name}}" width="256" height="198">
+      </div>
+      <p>{{case.name}}</p>
+    </div>
+  </div>
+
+  <div class="container-collections-contain">
+    <div *ngFor="let contains of item?.contains">
+      <p>{{contains.name}}</p>
+      <p [ngStyle]="{'background-color': contains.rarity?.color, 'border-radius': '5px'}">{{contains.rarity.name}}</p>
+      <p>{{contains.phase}}</p>
+      <img src="{{contains.image}}" alt="{{contains.name}}" width="256" height="196">
+    </div>
+  </div>
 
 
+  <button (click)="goBack()" class="details-goback">Go Back</button>
 </div>

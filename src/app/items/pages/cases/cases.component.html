@@ -6,6 +6,8 @@
       <p class="skin-rarity" [ngStyle]=" { 'background-color' : item.rarity?.color}">{{item.rarity?.name}}
       </p>
       <div class="skin-image"><img [src]="item.image" [alt]="item.name" width="400" height="300"></div>
+      <a [routerLink]="['details/', item.id]">View Details</a>
+
     </li>
   </ul>
 

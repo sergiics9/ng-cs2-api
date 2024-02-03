@@ -8,6 +8,8 @@
     <option value="">All</option>
     <option *ngFor="let option of pistolOptions" [value]="option">{{option}}</option>
   </select>
+
+  <input type="text" placeholder="Search" (input)="onSearch($event)">
 </div>
 
 <div *ngIf="noContent">

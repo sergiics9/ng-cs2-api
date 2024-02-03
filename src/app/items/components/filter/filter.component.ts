@@ -16,6 +16,7 @@ export class FilterComponent {
   selectedTeam: string = '';
   selectedPistol: string = '';
   noContent: boolean = false;
+  filteredItems: Item[] = [];
 
   filterItems(): void {
     const filteredItems = this.items.filter(
@@ -33,5 +34,17 @@ export class FilterComponent {
 
     this.noContent = filteredItems.length === 0;
     this.itemsFiltered.emit(filteredItems);
+  }
+
+  onSearch(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    if (!value) {
+      this.filteredItems = [...this.items];
+    } else {
+      this.filteredItems = this.items.filter((item) =>
+        item?.name?.toLowerCase().includes(value.toLowerCase())
+      );
+    }
+    this.itemsFiltered.emit(this.filteredItems);
   }
 }
