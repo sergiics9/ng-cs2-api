@@ -30,7 +30,7 @@
   <div class="container-collections-contain">
     <div *ngFor="let contains of item?.contains">
       <p>{{contains.name}}</p>
-      <p [ngStyle]="{'background-color': contains.rarity?.color, 'border-radius': '5px'}">{{contains.rarity.name}}</p>
+      <p [ngStyle]="{'background-color': contains?.rarity?.color, 'border-radius': '5px'}">{{contains.rarity.name}}</p>
       <p>{{contains.phase}}</p>
       <img src="{{contains.image}}" alt="{{contains.name}}" width="256" height="196">
     </div>

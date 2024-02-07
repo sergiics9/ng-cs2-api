@@ -1,34 +1,40 @@
 $font: "Karla";
 
-ul {
+.menu-flex {
   list-style: none;
   display: flex;
+  color: orange;
   justify-content: space-evenly;
   list-style-type: none;
-  padding: 0;
-}
-
-li > ul {
-  display: none;
-}
-
-li:hover > ul {
-  display: block;
-}
-
-li {
-  font-family: $font;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
   padding: 1rem;
-  cursor: pointer;
-  position: relative;
+  font-family: $font;
+  a {
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 15px;
+    &:hover {
+      background-color: #424850;
+      border-radius: 5px;
+    }
+  }
 }
 
 .active {
-  background-color: #fff;
+  background-color: #424850;
   color: #272b30;
   border-radius: 5px;
+  a {
+    color: #272b30;
+  }
+}
+
+.menu-button {
+  margin: 1rem;
+  background-color: transparent;
+  border: 1px solid orange;
+  border-radius: 5px;
+}
+
+.menu-button:hover {
+  background-color: #424850;
 }

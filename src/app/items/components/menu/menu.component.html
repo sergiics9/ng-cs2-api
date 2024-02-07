@@ -1,5 +1,16 @@
-<nav>
-  <ul>
-    <li *ngFor="let option of options" [routerLink]="option.path" routerLinkActive="active">{{ option.label }}</li>
-  </ul>
-</nav>
+<!-- Botón del menú que solo se muestra en pantallas pequeñas (menú hamburguesa) -->
+<button mat-icon-button [matMenuTriggerFor]="menu" fxHide.gt-sm class="menu-button">
+  <mat-icon>menu</mat-icon>
+</button>
+
+<!-- Menú que solo se muestra en pantallas pequeñas -->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let option of options" [routerLink]="option.path" routerLinkActive="active">{{
+    option.label }}</button>
+</mat-menu>
+
+<!-- Opciones de menú que se muestran como enlaces en una fila (flex) en pantallas grandes y se ocultan en pantallas pequeñas -->
+<div fxLayout="row" fxHide.lt-md class="menu-flex">
+  <a *ngFor="let option of options" [routerLink]="option.path" mat-button routerLinkActive="active">{{ option.label
+    }}</a>
+</div>

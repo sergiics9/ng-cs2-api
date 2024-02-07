@@ -24,6 +24,9 @@ import { FormsModule } from '@angular/forms';
 import { FilterComponent } from './components/filter/filter.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { DetailsComponent } from './pages/details/details.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,15 @@ import { DetailsComponent } from './pages/details/details.component';
     FilterComponent,
     DetailsComponent,
   ],
-  imports: [CommonModule, NgxPaginationModule, ItemsRoutingModule, FormsModule],
+  imports: [
+    CommonModule,
+    NgxPaginationModule,
+    ItemsRoutingModule,
+    FormsModule,
+    MatMenuModule,
+    FlexLayoutModule,
+    MatIconModule,
+  ],
   exports: [MenuComponent],
 })
 export class ItemModule {}

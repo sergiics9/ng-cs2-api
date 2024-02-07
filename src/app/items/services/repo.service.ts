@@ -6,37 +6,19 @@ import { Repo } from '../interfaces/repo';
 
 @Injectable({ providedIn: 'root' })
 export class ItemsService implements Repo<Item> {
-  private apiUrl: string = 'https://bymykel.github.io/CSGO-API/api/en/all.json';
+  private baseUrl: string = 'https://bymykel.github.io/CSGO-API/api/en/';
 
-  private apiSkinsUrl: string =
-    'https://bymykel.github.io/CSGO-API/api/en/skins.json';
-
-  private apiStickersUrl: string =
-    'https://bymykel.github.io/CSGO-API/api/en/stickers.json';
-
-  private apiCollectionsUrl: string =
-    'https://bymykel.github.io/CSGO-API/api/en/collections.json';
-
-  private apiCratesUrl: string =
-    'https://bymykel.github.io/CSGO-API/api/en/crates.json';
-
-  private apiKeysUrl: string =
-    'https://bymykel.github.io/CSGO-API/api/en/keys.json';
-
-  private apiCollectiblesUrl: string =
-    'https://bymykel.github.io/CSGO-API/api/en/collectibles.json';
-
-  private apiAgentsUrl: string =
-    'https://bymykel.github.io/CSGO-API/api/en/agents.json';
-
-  private apiPatchesUrl: string =
-    'https://bymykel.github.io/CSGO-API/api/en/patches.json';
-
-  private apiGraffitiUrl: string =
-    'https://bymykel.github.io/CSGO-API/api/en/graffiti.json';
-
-  private apiMusicUrl: string =
-    'https://bymykel.github.io/CSGO-API/api/en/music_kits.json';
+  private apiUrl: string = this.baseUrl + 'all.json';
+  private apiSkinsUrl: string = this.baseUrl + 'skins.json';
+  private apiStickersUrl: string = this.baseUrl + 'stickers.json';
+  private apiCollectionsUrl: string = this.baseUrl + 'collections.json';
+  private apiCratesUrl: string = this.baseUrl + 'crates.json';
+  private apiKeysUrl: string = this.baseUrl + 'keys.json';
+  private apiCollectiblesUrl: string = this.baseUrl + 'collectibles.json';
+  private apiAgentsUrl: string = this.baseUrl + 'agents.json';
+  private apiPatchesUrl: string = this.baseUrl + 'patches.json';
+  private apiGraffitiUrl: string = this.baseUrl + 'graffiti.json';
+  private apiMusicUrl: string = this.baseUrl + 'music_kits.json';
 
   constructor(private http: HttpClient) {}
 
